@@ -9,9 +9,6 @@
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 
-/[Aa]ssets/AssetStoreTools*
-/[Aa]ssets/Plugins/Editor/JetBrains*
-.gradle/
 
 # Unity Generated
 sysinfo.txt
@@ -153,6 +150,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-# Packed Addressables
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
