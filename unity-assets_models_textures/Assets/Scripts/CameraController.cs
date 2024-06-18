@@ -15,18 +15,22 @@ public class CameraController : MonoBehaviour
     private float cameraRotationY = 0f;
     private float maxCameraRotationX = 90f;
 
+    private float minCameraY;
+
+    public Vector3 startPosition;
+
 
     void Start()
     {
         // Offset between camera and player
         distance = transform.position - player.transform.position;
-
+        startPosition = transform.position;
     }
 
     void Update()
     {
         // Rotate the camera by holding down the right mouse button
-        RotateCameraWithRightClick();
+        RotateCameraClick();
     }
 
     // Called once per frame after all updates are complete
@@ -47,6 +51,11 @@ public class CameraController : MonoBehaviour
         transform.position = player.transform.position + Quaternion.Euler(cameraRotationX, cameraRotationY, 0f) * distance;
     }
 
+    public float GetMinCameraY()
+    {
+        return minCameraY;
+    }
+
     void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -61,7 +70,7 @@ public class CameraController : MonoBehaviour
         cameraRotationY += mouseX;
     }
 
-    void RotateCameraWithRightClick()
+    void RotateCameraClick()
     {
         if (Input.GetMouseButton(1))
         {
@@ -74,5 +83,14 @@ public class CameraController : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0f);
         }
+    }
+
+    public void ResetCameraPosition()
+    {
+        // Reset the camera's position and rotation to the initial state
+        transform.position = startPosition + distance;
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        cameraRotationX = 0f;
+        cameraRotationY = 0f;
     }
 }
