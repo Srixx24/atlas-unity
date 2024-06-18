@@ -17,18 +17,25 @@ public class PlayerController : MonoBehaviour
     public float speed = 0; 
 
     // Jump force
-    public float jumpForce = 5f;
+    public float jumpForce = 10f;
     public Vector3 jump;
 
-    // Reference to the CameraController script
-    public CameraController cameraController;
+    // Gravity logic
+    private float gravity = 20f;
+    private float maxFallSpeed = 30f;
+
+    private float horizontalVelocityDamping = 0.5f;
 
     // Fall logic
     private bool isOnPlatform = true;
     private Vector3 startPosition = new Vector3(0f, 1.25f, 0f);
     private float fallSpeed = 10f;
+    private bool frozenFalling = false;
 
     private bool jumpInputReceived = false;
+
+    // Reference to the CameraController script
+    public CameraController cameraController;
 
     // Start is called before the first frame update.
     void Start()
@@ -72,15 +79,45 @@ public class PlayerController : MonoBehaviour
         // Create a 3D movement vector using the X and Y inputs.
         Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
 
-        // Apply force to the Rigidbody to move the player.
-        rb.AddForce(movement * speed);
+        // Get the camera's forward direction
+        Vector3 cameraForward = cameraController.transform.forward;
+        cameraForward.y = 0f; // Ignore the vertical component of the camera's forward direction
+        cameraForward.Normalize(); // Normalize the vector to ensure the movement speed is consistent
 
+        // Create the movement vector based on the camera's forward direction and the player's input
+        Vector3 movementDirection = (cameraForward * movement.z) + (cameraController.transform.right * movement.x);
+
+        // Apply force to the Rigidbody to move the player.
+        rb.AddForce(movementDirection * speed);
+
+        // Apply horizontal movement using MovePosition()
+        Vector3 newPosition = transform.position + (movement * speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPosition);
+    
         if (jumpInputReceived && isOnPlatform)
         {
             // Apply a vertical force to the Rigidbody to make the player jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnPlatform = false;
             jumpInputReceived = false;
+        }
+
+        // Apply gravity
+        if (!isOnPlatform)
+        {
+            // Apply downward force based on gravity
+            rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+
+            // Clamp the vertical velocity to the maximum fall speed
+            if (rb.velocity.y < -maxFallSpeed)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, -maxFallSpeed, rb.velocity.z);
+            }
+        }
+        else
+        {
+            // Reset the horizontal velocity when the player lands
+            rb.velocity = new Vector3(rb.velocity.x * horizontalVelocityDamping, rb.velocity.y, rb.velocity.z * horizontalVelocityDamping);
         }
 
         // Check if the player is grounded
