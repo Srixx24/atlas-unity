@@ -13,8 +13,12 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
-    // Player speed
-    public float speed = 0; 
+    // Player speed and movement
+    public float speed = 0;
+
+    public float rotationSpeed = 180f;
+
+    private Transform cameraTransform;
 
     // Jump force
     public float jumpForce = 10f;
@@ -46,6 +50,8 @@ public class PlayerController : MonoBehaviour
         isOnPlatform = true;
 
         cameraController = FindObjectOfType<CameraController>();
+
+        cameraTransform = Camera.main.transform;
     
         if (cameraController == null)
         {
@@ -71,6 +77,44 @@ public class PlayerController : MonoBehaviour
     		rb.AddForce(jump * jumpForce, ForceMode.Impulse);
     		isOnPlatform = false;
     	}
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // Calculate the movement direction based on the camera's forward and right vectors
+        Vector3 movementDirection = (cameraTransform.forward * vertical) + (cameraTransform.right * horizontal);
+        movementDirection.y = 0f; // Ensure the player moves on the horizontal plane
+        movementDirection.Normalize();
+
+        // Move the player in the calculated direction
+        transform.position += movementDirection * speed * Time.deltaTime;
+
+        // Rotate the player to face the movement direction
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+    
+    private void OnTriggerEnter(Collider collision)
+    {
+        // Check if the entered collider is a platform
+        if (collision.CompareTag("Platform"))
+        {
+            // Player is on platform
+            isOnPlatform = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        // Check if the exited collider is a platform
+        if (collision.CompareTag("Platform"))
+        {
+            // Player is not on platform
+            isOnPlatform = false;
+        }
     }
 
     // FixedUpdate is called once per fixed frame-rate frame.
@@ -140,26 +184,6 @@ public class PlayerController : MonoBehaviour
                 // Reset the player's velocity
                 rb.velocity = Vector3.zero;
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        // Check if the entered collider is a platform
-        if (collision.CompareTag("Platform"))
-        {
-            // Player is on platform
-            isOnPlatform = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        // Check if the exited collider is a platform
-        if (collision.CompareTag("Platform"))
-        {
-            // Player is not on platform
-            isOnPlatform = false;
         }
     }
 }
