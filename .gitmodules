@@ -1,0 +1,3 @@
+[submodule "unity-assets_ui"]
+	path = unity-assets_ui
+	url = https://github.com/Srixx24/atlas-unity.git
