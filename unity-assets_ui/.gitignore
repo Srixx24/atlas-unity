@@ -8,6 +8,8 @@
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 
+!/Assets/Textures
+
 # Unity Generated
 sysinfo.txt
 *.stackdump
@@ -40,7 +42,7 @@ sysinfo.txt
 *.otf
 *.pdb
 *.pfx
-*.png
+
 *.ppt
 *.pptx
 *.rns
