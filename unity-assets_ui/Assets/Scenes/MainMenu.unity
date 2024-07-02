@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 426894640}
-  lvl2: {fileID: 1934854875}
-  lvl3: {fileID: 404702043}
-  quitButton: {fileID: 4492116555950867512}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
   optionsButton: {fileID: 1461283643}
 --- !u!224 &260204097 stripped
 RectTransform:
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 404702043}
   - component: {fileID: 404702046}
   m_Layer: 5
-  m_Name: Level 3
+  m_Name: Level03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 404702044}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 404702046}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &404702044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,11 +398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 0}
-  lvl2: {fileID: 0}
-  lvl3: {fileID: 0}
-  quitButton: {fileID: 0}
-  optionsButton: {fileID: 0}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
+  optionsButton: {fileID: 1461283643}
 --- !u!1 &426894638
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +471,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 216076621, guid: 43d3cb550a7e8894db62f67d8cd24fe3, type: 3}
+    m_HighlightedSprite: {fileID: -119415077, guid: 43d3cb550a7e8894db62f67d8cd24fe3, type: 3}
     m_PressedSprite: {fileID: -2046042642, guid: 43d3cb550a7e8894db62f67d8cd24fe3, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -473,7 +485,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 426894641}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 426894643}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: LevelSelect
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &426894641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,10 +548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 426894640}
-  lvl2: {fileID: 1934854875}
-  lvl3: {fileID: 404702043}
-  quitButton: {fileID: 4492116555950867512}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
   optionsButton: {fileID: 1461283643}
 --- !u!1 &479875954
 GameObject:
@@ -666,7 +690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 650, y: 500}
+  m_AnchoredPosition: {x: 650, y: 750}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687575558
@@ -1097,10 +1121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 426894640}
-  lvl2: {fileID: 1934854875}
-  lvl3: {fileID: 404702043}
-  quitButton: {fileID: 4492116555950867512}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
   optionsButton: {fileID: 1461283643}
 --- !u!1 &1622595848
 GameObject:
@@ -1247,6 +1271,7 @@ GameObject:
   - component: {fileID: 1625952621}
   - component: {fileID: 1625952623}
   - component: {fileID: 1625952622}
+  - component: {fileID: 1625952624}
   m_Layer: 5
   m_Name: MenuBG
   m_TagString: Untagged
@@ -1311,6 +1336,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625952620}
   m_CullTransparentMesh: 1
+--- !u!114 &1625952624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625952620}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
+  optionsButton: {fileID: 1461283643}
 --- !u!1 &1698718375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1608,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1934854876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1934854878}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: LevelSelect
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1934854876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,11 +1671,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 0}
-  lvl2: {fileID: 0}
-  lvl3: {fileID: 0}
-  quitButton: {fileID: 0}
-  optionsButton: {fileID: 0}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
+  optionsButton: {fileID: 1461283643}
 --- !u!224 &4492116555950867510 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4950685806293977138, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
@@ -1650,10 +1704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ada8f180074ba4ebfb1325247912f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1: {fileID: 426894640}
-  lvl2: {fileID: 1934854875}
-  lvl3: {fileID: 404702043}
-  quitButton: {fileID: 4492116555950867512}
+  Level01: {fileID: 426894640}
+  Level02: {fileID: 1934854875}
+  Level03: {fileID: 404702043}
+  exitButton: {fileID: 4492116555950867512}
   optionsButton: {fileID: 1461283643}
 --- !u!1001 &4643702928074050072
 PrefabInstance:
@@ -1663,6 +1717,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71264289}
     m_Modifications:
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1461283646}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OptionsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581063921708134683, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7276276241491885551, guid: 2ee11fc37bf27a2498e3b0566178fb0d, type: 3}
       propertyPath: m_Name
       value: OptionsButton
@@ -1764,6 +1846,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71264289}
     m_Modifications:
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4492116555950867515}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068979192839293434, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3736206900605036285, guid: 66d94903e182f334e988cf75e8222abe, type: 3}
       propertyPath: m_Name
       value: ExitButton
