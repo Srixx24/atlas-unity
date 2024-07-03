@@ -13,9 +13,9 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        Level01.onClick.AddListener(delegate { LoadLevel(0); });
-		Level02.onClick.AddListener(delegate { LoadLevel(1); });
-        Level03.onClick.AddListener(delegate { LoadLevel(2); });
+        Level01.onClick.AddListener(delegate { LoadLevel(3); });
+		Level02.onClick.AddListener(delegate { LoadLevel(4); });
+        Level03.onClick.AddListener(delegate { LoadLevel(5); });
         exitButton.onClick.AddListener(ExitGame);
         optionsButton.onClick.AddListener(OptionsButton);
     }
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     // Exit application
     public void ExitGame()
     {
-        Debug.Log("Quit game");
+        Debug.Log("Exited");
         Application.Quit();
     }
 }

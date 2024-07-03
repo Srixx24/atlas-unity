@@ -19,6 +19,9 @@ public class CameraController : MonoBehaviour
 
     public Vector3 startPosition;
 
+    // Inverted camera
+    public bool isInverted = false;
+
 
     void Start()
     {
@@ -62,7 +65,15 @@ public class CameraController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         // Rotate the camera on the X-axis (look up/down)
-        cameraRotationX -= mouseY;
+        if (isInverted)
+        {
+            cameraRotationX += mouseY;
+        }
+        else
+        {
+            cameraRotationX -= mouseY;
+        }
+
         cameraRotationX = Mathf.Clamp(cameraRotationX, -maxCameraRotationX, maxCameraRotationX);
         transform.localRotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0f);
 
@@ -77,7 +88,14 @@ public class CameraController : MonoBehaviour
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-            cameraRotationX -= mouseY;
+            if (isInverted)
+            {
+                cameraRotationX += mouseY;
+            }
+            else
+            {
+                cameraRotationX -= mouseY;
+            }
             cameraRotationX = Mathf.Clamp(cameraRotationX, -maxCameraRotationX, maxCameraRotationX);
             cameraRotationY += mouseX;
 

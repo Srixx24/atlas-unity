@@ -2926,6 +2926,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71264289}
     m_Modifications:
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7683422623358965979}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 204320512179560326, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2049153897238256091, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3010,11 +3038,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6474498984367186725, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3175471758752018736, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7683422623358965979}
   m_SourcePrefab: {fileID: 100100000, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+--- !u!1 &7683422623358965978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3175471758752018736, guid: e63d11a62b60f3e44b40d525a3e1e5cb, type: 3}
+  m_PrefabInstance: {fileID: 7683422623358965977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7683422623358965979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683422623358965978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773dab17e979f864e8eabd3018f06ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
