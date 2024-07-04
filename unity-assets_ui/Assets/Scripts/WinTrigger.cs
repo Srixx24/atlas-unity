@@ -2,29 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WinTrigger : MonoBehaviour
 {
     public Timer timerScript;
     public Text timerText;
+    public GameObject winCanvas;
+    public TextMeshProUGUI WinTime;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             StopTimer();
-            TextUpdate();
+            ActivateWinCanvas();
         }
     }
 
     private void StopTimer()
     {
-        timerScript.enabled = false;
+        if (timerScript != null)
+        {
+            timerScript.Win();
+            
+        }
     }
 
-    private void TextUpdate()
+    private void ActivateWinCanvas()
     {
-        timerText.fontSize = 100;
-        timerText.color = Color.green;
+        if (winCanvas != null)
+        {
+            winCanvas.SetActive(true);
+            if (timerScript != null)
+            {
+                if (WinTime != null)
+                {
+                    WinTime.text = timerScript.GetWinTime();
+                }
+            }
+        }
     }
 }

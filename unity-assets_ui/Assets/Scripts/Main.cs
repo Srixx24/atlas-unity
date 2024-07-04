@@ -18,7 +18,7 @@ public class Main : MonoBehaviour
     // Start maze game
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Quit game
