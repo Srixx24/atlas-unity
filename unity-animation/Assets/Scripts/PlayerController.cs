@@ -54,10 +54,10 @@ public class PlayerController : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
 
         cameraTransform = Camera.main.transform;
-    
+
         if (cameraController == null)
         {
-            Debug.LogError("PlayerController: CameraController not found.");
+            Debug.LogWarning("PlayerController: CameraController not found. Falling back to Camera.main.");
         }
     }
  
@@ -83,20 +83,29 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Calculate the movement direction based on the camera's forward and right vectors
-        Vector3 movementDirection = (cameraTransform.forward * vertical) + (cameraTransform.right * horizontal);
-        movementDirection.y = 0f; // Ensure the player moves on the horizontal plane
-        movementDirection.Normalize();
-
-        // Move the player in the calculated direction
-        transform.position += movementDirection * speed * Time.deltaTime;
-
-        // Rotate the player to face the movement direction
-        if (movementDirection != Vector3.zero)
+        if (cameraTransform != null)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            // Calculate the movement direction based on the camera's forward and right vectors
+            Vector3 movementDirection = (cameraTransform.forward * vertical) + (cameraTransform.right * horizontal);
+            movementDirection.y = 0f; // Ensure the player moves on the horizontal plane
+            movementDirection.Normalize();
+
+            // Move the player in the calculated direction
+            transform.position += movementDirection * speed * Time.deltaTime;
+
+            // Rotate the player to face the movement direction
+            if (movementDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            }
         }
+        else
+        {
+            Debug.LogError("PlayerController: cameraTransform is null. Unable to calculate movement direction.");
+        }
+
+        
 
     }
     
@@ -123,23 +132,31 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate is called once per fixed frame-rate frame.
     private void FixedUpdate() 
     {
-        // Create a 3D movement vector using the X and Y inputs.
-        Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
+        if (cameraController != null)
+        {
+            // Create a 3D movement vector using the X and Y inputs.
+            Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
 
-        // Get the camera's forward direction
-        Vector3 cameraForward = cameraController.transform.forward;
-        cameraForward.y = 0f; // Ignore the vertical component of the camera's forward direction
-        cameraForward.Normalize(); // Normalize the vector to ensure the movement speed is consistent
+            // Get the camera's forward direction
+            Vector3 cameraForward = cameraController.transform.forward;
+            cameraForward.y = 0f; // Ignore the vertical component of the camera's forward direction
+            cameraForward.Normalize(); // Normalize the vector to ensure the movement speed is consistent
 
-        // Create the movement vector based on the camera's forward direction and the player's input
-        Vector3 movementDirection = (cameraForward * movement.z) + (cameraController.transform.right * movement.x);
+            // Create the movement vector based on the camera's forward direction and the player's input
+            Vector3 movementDirection = (cameraForward * movement.z) + (cameraController.transform.right * movement.x);
 
-        // Apply force to the Rigidbody to move the player.
-        rb.AddForce(movementDirection * speed);
+            // Apply force to the Rigidbody to move the player.
+            rb.AddForce(movementDirection * speed);
 
-        // Apply horizontal movement using MovePosition()
-        Vector3 newPosition = transform.position + (movement * speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPosition);
+            // Apply horizontal movement using MovePosition()
+            Vector3 newPosition = transform.position + (movement * speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPosition);
+        }
+        else
+        {
+            Debug.LogError("PlayerController: cameraController is null. Unable to calculate movement direction.");
+        }
+        
     
         if (jumpInputReceived && isOnPlatform)
         {
