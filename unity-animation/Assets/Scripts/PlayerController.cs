@@ -104,9 +104,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("PlayerController: cameraTransform is null. Unable to calculate movement direction.");
         }
-
-        
-
     }
     
     private void OnTriggerEnter(Collider collision)
