@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
     // Reference to the CameraController script
     public CameraController cameraController;
 
+    private Animator animator;
+
     // Start is called before the first frame update.
     void Start()
     {
@@ -50,6 +53,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         isOnPlatform = true;
+
+        animator = GetComponent<Animator>();
 
         cameraController = FindObjectOfType<CameraController>();
 
@@ -78,7 +83,8 @@ public class PlayerController : MonoBehaviour
         {
     		rb.AddForce(jump * jumpForce, ForceMode.Impulse);
     		isOnPlatform = false;
-    	}
+        }
+    
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -98,6 +104,18 @@ public class PlayerController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            }
+            
+            // Trigger the appropriate animation based on the movement
+            if (movementDirection.magnitude > 0.1f)
+            {
+                animator.SetFloat("IsMoving", 1);
+                animator.SetTrigger("IdleToRunning");
+            }
+            else
+            {
+                animator.SetFloat("IsMoving", 0);
+                animator.SetTrigger("RunningToIdle");
             }
         }
         else

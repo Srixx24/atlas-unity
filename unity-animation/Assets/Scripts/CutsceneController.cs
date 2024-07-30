@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class CutsceneController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public GameObject CutsceneCamera;
     public GameObject MainCamera;
     public GameObject TimerCanvas;
     public GameObject Player;
     private PlayerController playerController;
+
+    private int currentLevel = 1; // Default to Level 1
+
+    public void SetCurrentLevel(int level)
+    {
+        currentLevel = level;
+    }
 
     private void Start()
     {
@@ -19,7 +26,7 @@ public class CutsceneController : MonoBehaviour
 
     public void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Intro01"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName($"Intro0{currentLevel}"))
         {
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
@@ -30,5 +37,4 @@ public class CutsceneController : MonoBehaviour
             }
         }
     }
-
 }
