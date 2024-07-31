@@ -427,9 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601ea73a794f79b4ba724d52c4c41459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   CutsceneCamera: {fileID: 899957291040724827}
   MainCamera: {fileID: 118332716}
-  TimerCanvas: {fileID: 1097461942}
+  TimerText: {fileID: 1155262124}
   Player: {fileID: 8110378658673320194}
 --- !u!1001 &519563517
 PrefabInstance:
@@ -607,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6900583783828493999, guid: b46bbb46bbeceb64882a81d039044729, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -873,7 +874,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1866079761327434688, guid: b46bbb46bbeceb64882a81d039044729, type: 3}
   m_PrefabInstance: {fileID: 541530651}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1155262124}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -970,10 +971,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601ea73a794f79b4ba724d52c4c41459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   CutsceneCamera: {fileID: 899957291040724827}
   MainCamera: {fileID: 118332716}
-  TimerCanvas: {fileID: 1097461942}
+  TimerText: {fileID: 0}
   Player: {fileID: 0}
+--- !u!1 &1155262124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7359484900862527457, guid: b46bbb46bbeceb64882a81d039044729, type: 3}
+  m_PrefabInstance: {fileID: 541530651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1222751079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1732,6 +1739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5761919306313334199, guid: 53f21d5fd3cf95e418e3fbd505ac69d4, type: 3}
+      propertyPath: m_Height
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6776097262562375371, guid: 53f21d5fd3cf95e418e3fbd505ac69d4, type: 3}
       propertyPath: MainCamera
       value: 
@@ -2025,6 +2036,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 8110378658673320194}
+    - target: {fileID: 6964508408634309082, guid: 8ad2d28dc46331d4f906c61d0aa13d37, type: 3}
+      propertyPath: TimerText
+      value: 
+      objectReference: {fileID: 1155262124}
     - target: {fileID: 6964508408634309082, guid: 8ad2d28dc46331d4f906c61d0aa13d37, type: 3}
       propertyPath: MainCamera
       value: 

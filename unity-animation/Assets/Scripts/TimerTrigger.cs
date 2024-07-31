@@ -10,8 +10,15 @@ public class TimerTrigger : MonoBehaviour
 
     private void Start()
     {
-        timerScript = GetComponent<Timer>();
-        timerScript.enabled = false;
+        if (timerScript == null)
+        {
+            timerScript = GetComponent<Timer>();
+        }
+
+        if (timerScript != null)
+        {
+            timerScript.enabled = false;
+        }
     }
     
     private void OnTriggerEnter(Collider other)
