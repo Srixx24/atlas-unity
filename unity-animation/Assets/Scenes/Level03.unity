@@ -10525,6 +10525,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8652367154119379987, guid: d6a4317d87859ac4b8d028a75aa637d7, type: 3}
   m_PrefabInstance: {fileID: 495546808}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &495582250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5044946925224192279, guid: 0d125ee8c73449544956ec64d4ae39c4, type: 3}
+  m_PrefabInstance: {fileID: 2195366985490522615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499024745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26888,7 +26893,7 @@ MonoBehaviour:
   animator: {fileID: 1343848158}
   CutsceneCamera: {fileID: 1343848152}
   MainCamera: {fileID: 1500159801}
-  TimerText: {fileID: 0}
+  TimerText: {fileID: 495582250}
   Player: {fileID: 4020329780616491685}
 --- !u!95 &1343848158 stripped
 Animator:
@@ -43007,7 +43012,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5578879857306685202, guid: 0d125ee8c73449544956ec64d4ae39c4, type: 3}
   m_PrefabInstance: {fileID: 2195366985490522615}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 495582250}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -44621,6 +44626,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4020329780616491686}
+    - target: {fileID: 2115477065567412811, guid: 46fb8a35df8f3254b93642fea69b9f14, type: 3}
+      propertyPath: TimerText
+      value: 
+      objectReference: {fileID: 495582250}
     - target: {fileID: 2115477065567412811, guid: 46fb8a35df8f3254b93642fea69b9f14, type: 3}
       propertyPath: MainCamera
       value: 

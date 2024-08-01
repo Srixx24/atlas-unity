@@ -1870,7 +1870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5013594544677453113, guid: 8ad2d28dc46331d4f906c61d0aa13d37, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5580312845944860721, guid: 8ad2d28dc46331d4f906c61d0aa13d37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5897,6 +5897,10 @@ PrefabInstance:
       propertyPath: m_Height
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6924986718236663026, guid: d08b69e8a48f83643b1b5c19f33aac51, type: 3}
+      propertyPath: pauseCanvas
+      value: 
+      objectReference: {fileID: 253543868}
     - target: {fileID: 9032804674233533242, guid: d08b69e8a48f83643b1b5c19f33aac51, type: 3}
       propertyPath: m_Name
       value: AnimatedPlayer
