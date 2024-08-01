@@ -5825,6 +5825,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3534005396112652592, guid: d08b69e8a48f83643b1b5c19f33aac51, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 939af9a2f59e51044ad3e0d64caff2be, type: 3}
+    - target: {fileID: 3534005396112652592, guid: d08b69e8a48f83643b1b5c19f33aac51, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Boy:Hips'\n\tTransform 'Boy:LeftArm'\n\tTransform
+        'Boy:RightHandRing1'\n\tTransform 'Boy:RightHandThumb1'\n\tTransform 'Boy:LeftHandRing2'\n\tTransform
+        'Boy:Head'\n\tTransform 'Boy:LeftHandPinky2'\n\tTransform 'Boy:RightHandIndex2'\n\tTransform
+        'Boy:RightArm'\n\tTransform 'Boy:LeftHandIndex3'\n\tand more ...\n\tFrom
+        animation clip 'Getting Up'"
+      objectReference: {fileID: 0}
     - target: {fileID: 3602310668169453153, guid: d08b69e8a48f83643b1b5c19f33aac51, type: 3}
       propertyPath: animator
       value: 

@@ -28,13 +28,11 @@ sysinfo.txt
 *.exe
 *.exp
 *.exr
-*.fbx
 *.gz
 *.ico
 *.jpeg
 *.jpg
 *.lnk
-*.meta
 *.midi
 *.mp3
 *.mpeg
@@ -80,3 +78,5 @@ yarn-error.log
 .DS_Store
 .vs/
 .vscode/
+
+/[Aa]ssets/Materials/Models/
