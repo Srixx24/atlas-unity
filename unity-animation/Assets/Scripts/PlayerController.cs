@@ -66,15 +66,6 @@ public class PlayerController : MonoBehaviour
         }
     }
  
-    void OnMove(InputValue movementValue)
-    {
-        // Convert the input value into a Vector2 for movement.
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        // Store the X and Y components of the movement.
-        movementX = movementVector.x; 
-        movementY = movementVector.y; 
-    }
 
     void Update()
     {
@@ -123,28 +114,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("PlayerController: cameraTransform is null. Unable to calculate movement direction.");
         }
     }
-    
-    private void OnTriggerEnter(Collider collision)
-    {
-        // Check if the entered collider is a platform
-        if (collision.CompareTag("Platform"))
-        {
-            // Player is on platform
-            isOnPlatform = true;
-        }
-    }
 
-    private void OnTriggerExit(Collider collision)
-    {
-        // Check if the exited collider is a platform
-        if (collision.CompareTag("Platform"))
-        {
-            // Player is not on platform
-            isOnPlatform = false;
-        }
-    }
-
-    // FixedUpdate is called once per fixed frame-rate frame.
     private void FixedUpdate() 
     {
         if (cameraController != null)
@@ -220,5 +190,35 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector3.zero;
             }
         }
+    }
+    
+    private void OnTriggerEnter(Collider collision)
+    {
+        // Check if the entered collider is a platform
+        if (collision.CompareTag("Platform"))
+        {
+            // Player is on platform
+            isOnPlatform = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        // Check if the exited collider is a platform
+        if (collision.CompareTag("Platform"))
+        {
+            // Player is not on platform
+            isOnPlatform = false;
+        }
+    }
+
+    void OnMove(InputValue movementValue)
+    {
+        // Convert the input value into a Vector2 for movement.
+        Vector2 movementVector = movementValue.Get<Vector2>();
+
+        // Store the X and Y components of the movement.
+        movementX = movementVector.x; 
+        movementY = movementVector.y; 
     }
 }

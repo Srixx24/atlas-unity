@@ -372,14 +372,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: 
+    functionName: SetCurrentLevel
     data: 
     objectReferenceParameter: {fileID: 8110378657919645770, guid: 8a391d0dd45d2d14c8c40bc489440ff8, type: 3}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 1
     messageOptions: 0
   - time: 4
-    functionName: 
+    functionName: EndCutScene
     data: 
     objectReferenceParameter: {fileID: 4020329781778886540, guid: 53f21d5fd3cf95e418e3fbd505ac69d4, type: 3}
     floatParameter: 0
