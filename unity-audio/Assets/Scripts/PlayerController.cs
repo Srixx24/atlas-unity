@@ -45,8 +45,13 @@ public class PlayerController : MonoBehaviour
     public CameraController cameraController;
 
     private Animator animator;
+    private AudioSource audioSource;
+    public AudioSource footstepsAudioSource;
+    public AudioSource landingAudioSource;
+    private bool isRunning = false;
+    private bool isLanding = false;
 
-    // Start is called before the first frame update.
+
     void Start()
     {
         // Get and store player Rigidbody.
@@ -55,6 +60,7 @@ public class PlayerController : MonoBehaviour
         isOnPlatform = true;
 
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         cameraController = FindObjectOfType<CameraController>();
 
@@ -107,6 +113,18 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetFloat("IsMoving", 0);
                 animator.SetTrigger("RunningToIdle");
+            }
+
+            // Play running audio
+            if (movementDirection.magnitude > 0.1f && !isRunning)
+            {
+                footstepsAudioSource.Play();
+                isRunning = true;
+            }
+            else if (movementDirection.magnitude <= 0.1f && isRunning)
+            {
+                footstepsAudioSource.Stop();
+                isRunning = false;
             }
         }
         else
@@ -189,6 +207,17 @@ public class PlayerController : MonoBehaviour
                 // Reset the player's velocity
                 rb.velocity = Vector3.zero;
             }
+        }
+
+        // Check for landing
+        if (isOnPlatform && !isLanding)
+        {
+            landingAudioSource.PlayOneShot(landingAudioSource.clip);
+            isLanding = true;
+        }
+        else if (!isOnPlatform)
+        {
+            isLanding = false;
         }
     }
     

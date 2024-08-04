@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,29 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused = false;
 
     private OptionsMenu optionsMenu;
+    private AudioMixer masterMixer;
+    private AudioMixerSnapshot pauseSnapshot;
+    private AudioMixerSnapshot unPauseSnapshot;
+    
+
+    private void Awake()
+    {
+        masterMixer = Resources.Load<AudioMixer>("MasterMixer");
+        if (masterMixer == null)
+        {
+            Debug.LogError("Failed to load the MasterMixer asset.");
+        }
+
+        // Load the "Pause" and "Unpause" snapshots from the MasterMixer
+        pauseSnapshot = masterMixer.FindSnapshot("Pause");
+        unPauseSnapshot = masterMixer.FindSnapshot("Unpause");
+
+        if (pauseSnapshot == null || unPauseSnapshot == null)
+        {
+            Debug.LogError("Failed to find the Pause or Unpause snapshots in the MasterMixer.");
+            return;
+        }
+    }
 
     private void Start()
     {
@@ -46,6 +70,12 @@ public class PauseMenu : MonoBehaviour
 
         // Activate the pauseCanvas
         pauseCanvas.SetActive(true);
+
+        // Set the audio mixer to the "Paused" Snapshot
+        if (pauseSnapshot != null)
+        {
+            pauseSnapshot.TransitionTo(0.5f);
+        }
     }
 
     // Method to resume the game
@@ -59,6 +89,12 @@ public class PauseMenu : MonoBehaviour
 
         // Deactivate the pauseCanvas
         pauseCanvas.SetActive(false);
+
+        // Set the audio mixer back to the "Unpaused" Snapshot
+        if (unPauseSnapshot != null)
+        {
+            unPauseSnapshot.TransitionTo(0.5f);
+        }
     }
 
     // Method to restart the current scene

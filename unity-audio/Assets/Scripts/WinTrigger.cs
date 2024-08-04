@@ -10,12 +10,15 @@ public class WinTrigger : MonoBehaviour
     public Text timerText;
     public GameObject winCanvas;
     public TextMeshProUGUI WinTime;
+    public AudioSource victoryPianoAudioSource;
+    public AudioSource backgroundMusicAudioSource;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             StopTimer();
+            StopBackgroundMusic();
             ActivateWinCanvas();
         }
     }
@@ -41,6 +44,22 @@ public class WinTrigger : MonoBehaviour
                     WinTime.text = timerScript.GetWinTime();
                 }
             }
+        }
+    }
+
+    private void StopBackgroundMusic()
+    {
+        if (backgroundMusicAudioSource != null)
+        {
+            backgroundMusicAudioSource.Stop();
+        }
+    }
+
+    private void PlayVictoryPiano()
+    {
+        if (victoryPianoAudioSource != null)
+        {
+            victoryPianoAudioSource.Play();
         }
     }
 }
