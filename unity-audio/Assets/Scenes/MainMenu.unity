@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 1098085254}
   m_Layer: 0
   m_Name: Background Audio
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1583,6 +1583,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71264289}
     m_Modifications:
+    - target: {fileID: 727611921656141805, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -63254574553144896, guid: a555c06b88195fd4385f7b967880ef1e, type: 2}
+    - target: {fileID: 1417672668634505358, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
+      propertyPath: m_TagString
+      value: SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538012989196478644, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -63254574553144896, guid: a555c06b88195fd4385f7b967880ef1e, type: 2}
+    - target: {fileID: 4934150438042459163, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -63254574553144896, guid: a555c06b88195fd4385f7b967880ef1e, type: 2}
     - target: {fileID: 6213864813575883314, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
       propertyPath: m_LocalPosition.x
       value: -711.07825
@@ -1626,6 +1642,10 @@ PrefabInstance:
     - target: {fileID: 6453757198013018824, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
       propertyPath: m_Name
       value: MenuSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635949741018299394, guid: 25fdb4c831e51a54e83ce60407618842, type: 3}
+      propertyPath: m_TagString
+      value: SFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

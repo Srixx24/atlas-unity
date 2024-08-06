@@ -23,6 +23,10 @@ public class PauseMenu : MonoBehaviour
         {
             Debug.LogError("Failed to load the MasterMixer asset.");
         }
+        else
+        {
+            Debug.Log("MasterMixer loaded successfully.");
+        }
 
         // Load the "Pause" and "Unpause" snapshots from the MasterMixer
         pauseSnapshot = masterMixer.FindSnapshot("Pause");
@@ -31,7 +35,10 @@ public class PauseMenu : MonoBehaviour
         if (pauseSnapshot == null || unPauseSnapshot == null)
         {
             Debug.LogError("Failed to find the Pause or Unpause snapshots in the MasterMixer.");
-            return;
+        }
+        else
+        {
+            Debug.Log("Pause and Unpause snapshots found successfully.");
         }
     }
 
@@ -74,7 +81,11 @@ public class PauseMenu : MonoBehaviour
         // Set the audio mixer to the "Paused" Snapshot
         if (pauseSnapshot != null)
         {
-            pauseSnapshot.TransitionTo(0.5f);
+            pauseSnapshot.TransitionTo(0.01f);
+        }
+        else
+        {
+            Debug.LogError("PauseSnapshot is null in PauseMenu script.");
         }
     }
 
@@ -93,7 +104,11 @@ public class PauseMenu : MonoBehaviour
         // Set the audio mixer back to the "Unpaused" Snapshot
         if (unPauseSnapshot != null)
         {
-            unPauseSnapshot.TransitionTo(0.5f);
+            unPauseSnapshot.TransitionTo(0.01f);
+        }
+        else
+        {
+            Debug.LogError("unPauseSnapshot is null in PauseMenu script.");
         }
     }
 

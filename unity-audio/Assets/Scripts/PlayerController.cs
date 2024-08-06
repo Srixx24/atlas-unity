@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
     // Reference to the CameraController script
     public CameraController cameraController;
-
     private Animator animator;
     private AudioSource audioSource;
     public AudioSource footstepsAudioSource;

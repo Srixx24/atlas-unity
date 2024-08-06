@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - End
   - Trigger
+  - SFX
+  - BGM
   layers:
   - Default
   - TransparentFX
