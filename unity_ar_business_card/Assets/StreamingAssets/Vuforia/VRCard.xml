@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="lovinstransparentcolor" size="1.000000 1.044068" />
+    <ImageTarget name="lovinstranscolor" size="1.000000 1.044068" />
+    <ImageTarget name="lovinscolor" size="1.000000 1.044068" />
+    <ImageTarget name="lovinsdev_transparentcolor" size="1.000000 1.044068" />
+  </Tracking>
+</QCARConfig>
