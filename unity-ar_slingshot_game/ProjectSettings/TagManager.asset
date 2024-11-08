@@ -18,6 +18,10 @@ TagManager:
   - ArrowSpawn
   - Bow
   - Reload
+  - Starting Launch Info
+  - Hit
+  - Miss
+  - Shoot Again
   layers:
   - Default
   - TransparentFX
