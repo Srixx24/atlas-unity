@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
@@ -97,6 +98,14 @@ public class GameManager : MonoBehaviour
         pauseMenuCanvas.SetActive(false);
 
         launchLogic.ReadyToLaunch(false);
+
+        StartCoroutine(DisplayFinalScore());
+    }
+
+    private IEnumerator DisplayFinalScore()
+    {
+        yield return null; // Wait for last shot
+        endGameCanvas.GetComponent<EndGame>().FinalScore();
     }
 
     public void CleanUpPrefabs()

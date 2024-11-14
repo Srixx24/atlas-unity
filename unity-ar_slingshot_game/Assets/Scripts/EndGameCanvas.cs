@@ -29,7 +29,7 @@ public class EndGame : MonoBehaviour
         FinalScore();
     }
 
-    private void FinalScore()
+    public void FinalScore()
     {
         if (scoreKeeper != null && finalScoreText != null)
         {

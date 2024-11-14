@@ -52,7 +52,7 @@ public class SlimeController : MonoBehaviour
         randomPosition.z = 20; // Test
         GameObject target = Instantiate(targetPrefab, randomPosition, Quaternion.identity);
 
-        // Assign the ScoreManager to the target's TargetHitScore component
+        // Assign the ScoreKeeper to the target's TargetHitScore component
         TargetHitScore targetHitScore = target.GetComponent<TargetHitScore>();
         ScoreKeeper scoreKeeper = Object.FindFirstObjectByType<ScoreKeeper>();
         if (targetHitScore != null && scoreKeeper != null)
