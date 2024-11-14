@@ -15,15 +15,19 @@ public class LaunchLogic : MonoBehaviour
     private GameObject currentArrow;
     private LineRenderer trajectoryLine;
     private Vector3 startPosition;
-    public GameObject[] reloadUIObjects;
     private bool isDragging = false;
     private bool readyToLaunch = false;
     public GameObject boundingBox;
+    public AudioClip shootAudioClip;
+    public AudioClip hitAudioClip;
+    private AudioSource audioSource;
+    public GameObject[] reloadUIObjects;
 
 
     public void Start()
     {
         gameManager = Object.FindFirstObjectByType<GameManager>();
+        audioSource = gameObject.AddComponent<AudioSource>();
 
         // Insure shoot again info is inactive
         shootAgain.SetActive(false);
@@ -152,6 +156,7 @@ public class LaunchLogic : MonoBehaviour
         // Apply force based on dragged
         float forceMagnitude = launchDirection.magnitude * 2.5f;
         rb.AddForce(launchDirection.normalized * forceMagnitude, ForceMode.Impulse);
+        audioSource.PlayOneShot(shootAudioClip);
 
         // Hide trajectory line
         Destroy(trajectoryLine.gameObject);
@@ -193,6 +198,7 @@ public class LaunchLogic : MonoBehaviour
                 {
                     targetHitScore.NotifyHit(targetType);
                     Destroy(target.gameObject); // Destroy the target
+                    audioSource.PlayOneShot(hitAudioClip);
 
                     // Ensure the SlimeController maintains the target count
                     SlimeController slimeController = Object.FindFirstObjectByType<SlimeController>();
