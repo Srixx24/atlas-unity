@@ -4,9 +4,9 @@
 
 ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 
-<h3><p align="center">
-Project manage and developed by me <a href="https://github.com/Srixx24/">Jackie</a>
-</h3></p>
+<p align="center">
+✨ Designed, produced, and managed by me, <a href="https://github.com/Srixx24/">Jackie Lovins</a> ✨
+</p>
 
 <br>
 
