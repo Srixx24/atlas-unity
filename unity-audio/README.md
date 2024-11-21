@@ -10,8 +10,8 @@ Project manage and developed by me <a href="https://github.com/Srixx24/">Jackie<
 
 <br>
 
-This is a Unity-based 3D project that I designed to create a three-level immersive, interactive platform jumping mini-game with a main menu and settings scenes. The user will jump from platform to platform to reach the flag at the top of the map. During game play a timer will track until the flag is found in all three rounds.
-During the months of developing this game, I learn much about Unity and things like asset utilization, animation, audio, transitions, bringing life into objects and the worlds I create, plus so much more. This project was very exciting and I had so much fun learning these skills. 
+This is a Unity-based 3D project that I designed to create a three-level immersive, interactive platform-jumping mini-game with a main menu and settings scenes. The user jumps from platform to platform to reach the flag at the top of the map. During gameplay, a timer tracks until the flag is found in all three rounds.
+During the months of developing this game, I learned much about Unity and things like asset utilization, animation, audio, transitions, bringing life into objects and the worlds I create, plus so much more. This project was very exciting and I had so much fun learning these skills. 
 
 <br>
 
