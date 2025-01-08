@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en-us"><head>
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | 0x0E-unity-webxr</title>
     <meta name="description" content="">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="CSS/style.css">
+    <script src="Build/Builds.loader.js"></script>
+    <script src="Build/Builds.framework.js.br"></script>
   </head>
-  <body data-new-gr-c-s-check-loaded="14.1215.0" data-gr-ext-installed="">
-    <div class="header" id="header">
-      <h1 class="game_title">Space Bowling</h1>
-    </div>
+  <body>
     <div id="unity-container">
-      <div id="unity-canvas-container" style="width: 960px; height: 600px;">
-        <canvas id="unity-canvas" style="width: 100%; height: 100%; cursor: default;" width="960" height="600"></canvas>
+      <div id="unity-canvas-container">
+        <canvas id="unity-canvas" style="width: 100%; height: 100%;"></canvas>
       </div>
-      <div id="unity-loading-bar" style="display: none;">
+      <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full" style="width: 100%;"></div>
+          <div id="unity-progress-bar-full"></div>
         </div>
       </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
-        <button id="entervr" value="Enter VR" disabled="">VR</button>
-        <button id="enterar" value="Enter AR" disabled="">AR</button>
+        <button id="entervr" value="Enter VR" disabled>VR</button>
+        <button id="enterar" value="Enter AR" disabled>AR</button>
+        <div id="unity-webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
+        <div id="unity-build-title">0x0E-unity-webxr</div>
         <button>
           <img src="https://itch.io/static/images/enlarge.svg?1736109884" width="100" height="100">
         </button>
-
-        <div id="unity-webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
         <div class="instructions">
             <p></p>
             <p>boop</p>
@@ -37,7 +37,6 @@
         </div>
       </div>
     </div>
-    
     <script>
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Builds.loader.js";
@@ -100,8 +99,7 @@
       enterVRButton.addEventListener('click', function (event) {
         unityInstance.Module.WebXR.toggleVR();
       }, false);
-    </script><script src="Build/Builds.loader.js"></script>
-  
-
-<script src="Build/Builds.framework.js.br"></script></body>
+    </script>
+    
+  </body>
 </html>
