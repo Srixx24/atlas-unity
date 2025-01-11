@@ -12,6 +12,7 @@ TagManager:
   - Right Controller
   - Left Controller
   - ThrowCam
+  - Pin
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour
     private bool isInLane = false;
     public float forwardForce = 10f;
     public AnimatedThrow animatedThrow;
+    public ScoreKeeper scoreKeeper;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag("Lane"))
         {
             isInLane = true;
+            scoreKeeper.BallThrown();
             if (animatedThrow != null)
                 animatedThrow.StartThrow();
 
