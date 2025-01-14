@@ -9,10 +9,8 @@ public class CameraController : MonoBehaviour
     public GameObject hiddenCanvas;
     private float currentZoom = 0f;
     public GameObject anchor;
-    private Vector3 offset;
     private float yaw = 0f; // Horizontal rotation
     private float pitch = 0f; // Vertical rotation
-
 
     void Start()
     {
@@ -27,20 +25,20 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        PositionCamera(); // Update the camera's position
+        PositionCamera(); // Update camera's position
     }
 
     void PositionCamera()
     {
-        Vector3 desiredPosition = anchor.transform.position + Quaternion.Euler(0, yaw, 0) * offset;
+        // Calculate desired position based on current zoom
+        Vector3 desiredPosition = anchor.transform.position - transform.forward * (currentZoom + Mathf.Abs(minZoom));
         transform.position = desiredPosition;
         transform.LookAt(anchor.transform.position);
     }
 
-    // Rotates camera direction by holding down the right mouse button
-    // Added some tilt prevention for my motion sickness lol
     private void HandleRotation()
     {
+        // Rotates camera by holding down right mouse button
         if (Input.GetMouseButton(1))
         {
             float horizontal = Input.GetAxis("Mouse X") * rotationSpeed;
@@ -67,7 +65,6 @@ public class CameraController : MonoBehaviour
 
         // Clamp the zoom level
         currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-        offset.z = currentZoom;
 
         // Allow zoom indicator if appropriate
         hiddenCanvas.SetActive(currentZoom < maxZoom);

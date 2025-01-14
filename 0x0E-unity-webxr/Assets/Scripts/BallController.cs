@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float userSpeed = 2f;
     private Rigidbody rb;
     private bool isInLane = false;
     public float forwardForce = 10f;
@@ -21,10 +21,9 @@ public class BallController : MonoBehaviour
 
     private void HandleInput()
     {
-        // Control ball movement only if it is in lane
+        // Control ball movement only if its in lane
         if (isInLane)
         {
-            // For keyboard control
             float horizontalInput = 0f;
             if (Input.GetKey(KeyCode.LeftArrow))
                 horizontalInput = -1f;
@@ -39,16 +38,11 @@ public class BallController : MonoBehaviour
         }
     }
 
-    // In-lane movement calculations
     private void MoveBall(float horizontalInput)
     {
+        // In-lane movement calculations
         Vector3 movementDirection = new Vector3(horizontalInput, 0, 0);
-        transform.position += movementDirection * speed * Time.deltaTime;
-        transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y,
-            transform.position.z
-        );
+        transform.position += movementDirection * userSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,22 +53,19 @@ public class BallController : MonoBehaviour
             scoreKeeper.BallThrown();
             if (animatedThrow != null)
                 animatedThrow.StartThrow();
-
-            PushBallForward();
+            MoveForward();
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        // Check if the ball has exited the lane
         if (collision.gameObject.CompareTag("Lane"))
             isInLane = false;
     }
-
-    private void PushBallForward()
+    private void MoveForward()
     {
-        Vector3 pushForce = transform.forward * forwardForce;
-        rb.AddForce(pushForce, ForceMode.Impulse);
+        // Apply constant force while balls in lane
+        rb.AddForce(transform.forward * forwardForce, ForceMode.VelocityChange);
     }
 
     // Placeholder for detecting VR input, can't remember if this is

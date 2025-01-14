@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class ScoreKeeper : MonoBehaviour
 {
     public int score = 0;
-    public int totalPins = 10;
     private int throwsRemaining = 5;
     public GameObject[] pins;
     public TextMeshProUGUI scoreText;
@@ -20,11 +19,17 @@ public class ScoreKeeper : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pin"))
+        foreach (GameObject pin in pins)
         {
-            Destroy(other.gameObject);
-            score++;
-            UpdateScoreText();
+            if (other.gameObject == pin)
+            {
+                Destroy(pin);
+                score++;
+                UpdateScoreText();
+                if (score >= 10)
+                    StartCoroutine(ResetCoroutine());
+                break;
+            }
         }
     }
 
@@ -32,11 +37,8 @@ public class ScoreKeeper : MonoBehaviour
     {
         throwsRemaining--;
         UpdateThrowText();
-
         if (throwsRemaining <= 0)
-        {
             StartCoroutine(ResetCoroutine());
-        }
     }
 
     private void UpdateScoreText()
@@ -56,7 +58,7 @@ public class ScoreKeeper : MonoBehaviour
         {
             scoreText.color = Color.green;
             yield return new WaitForSeconds(1f);
-            scoreText.color = Color.white;
+            scoreText.color = Color.red;
             yield return new WaitForSeconds(1f);
         }
 
@@ -66,7 +68,7 @@ public class ScoreKeeper : MonoBehaviour
         UpdateThrowText();
 
         // Reload the current scene
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
