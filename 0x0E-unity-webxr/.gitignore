@@ -67,7 +67,7 @@ sysinfo.txt
 *.preset
 *.prefab
 *.fbx
-*.png
+
 
 # Compiled Output
 *.dll
