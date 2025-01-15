@@ -68,7 +68,7 @@ public class ScoreKeeper : MonoBehaviour
         UpdateThrowText();
 
         // Reload the current scene
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

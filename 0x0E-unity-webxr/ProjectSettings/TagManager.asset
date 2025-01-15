@@ -13,6 +13,9 @@ TagManager:
   - Left Controller
   - ThrowCam
   - Pin
+  - Spawn Area
+  - Ball
+  - pins
   layers:
   - Default
   - TransparentFX
