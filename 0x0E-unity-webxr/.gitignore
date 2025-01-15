@@ -21,7 +21,6 @@ sysinfo.txt
 *.app
 *.avif
 *.c
-*.data
 *.db
 *.dds
 *.doc
