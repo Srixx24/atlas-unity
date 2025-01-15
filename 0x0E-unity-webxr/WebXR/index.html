@@ -7,10 +7,13 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="background: #5d506e;">
     <div class="header" id="header">
-      <h1 class="game_title" style="display: flex; justify-content: center; color: #247b85; font-size: 50px;">Space Bowling</h1>
+      <h1 class="game_title">Space Bowling</h1>
     </div>
     <div id="unity-container">
       <div id="unity-canvas-container">
@@ -29,10 +32,14 @@
         <div id="unity-webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
         <div id="unity-build-title">0x0E-unity-webxr</div>
       </div>
-      <div class="instructions" style="display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-end; align-items: flex-start;">
-        <p></p>
-        <p>boop</p>
-        <p>boop :)</p>
+      <div id="instructions">
+        <p>Use WSAD keys to move, Hold right mouse click to move camera.</p>
+        <p>Left mouse click and hold to pick up ball and throw in lane.</p>
+        <p>⬆️⬇️ keys to zoom, ⬅️➡️ keys to move ball in the lane.</p>
+        <p>When all 5 balls are thrown or all 10 pins are cleared the game will reset.</p>
+        <p>Game is playable in VR as well, use right trigger to pick up ball.</p>
+        <p>Left joystick to control the ball in lane. Zoom is not available here.</p>
+        <p>Either way you play, watch out for the saws and speed boosts!</p>
       </div>
     </div>
     <script>
