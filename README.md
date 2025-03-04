@@ -11,7 +11,7 @@ All projects were managed and developed by me <a href="https://github.com/Srixx2
 
 <br>
 
-This repository contains many projects from my third trimester of AR/VR development specialization, with a few sprinkled in from my fourth trimester as well. During this time a greater understanding of Unity and how it functions formed; some projects I'm really proud of are located here. See below for some examples.
+This repository contains many projects from my AR/VR development specialization, listed below are some of the projects I'm very proud of.
 
 ---
 <center> <h3>Repository Overview</h3> </center>
