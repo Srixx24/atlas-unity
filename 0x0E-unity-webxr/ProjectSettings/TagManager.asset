@@ -16,6 +16,8 @@ TagManager:
   - Spawn Area
   - Ball
   - pins
+  - Boosts
+  - Saw
   layers:
   - Default
   - TransparentFX

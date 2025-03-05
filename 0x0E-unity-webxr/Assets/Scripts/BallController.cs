@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -8,6 +9,7 @@ public class BallController : MonoBehaviour
     public float forwardForce = 10f;
     public AnimatedThrow animatedThrow;
     public ScoreKeeper scoreKeeper;
+    public BoostsAndStops boostsAndStops;
 
     void Start()
     {
@@ -29,11 +31,9 @@ public class BallController : MonoBehaviour
                 horizontalInput = -1f;
             if (Input.GetKey(KeyCode.RightArrow))
                 horizontalInput = 1f;
-
-            float vrHorizontalInput = GetVRJoystickHorizontalInput(); // VR joystick input, may not need
-
+                
             // Determine the movement direction
-            float movementInput = horizontalInput != 0 ? horizontalInput : vrHorizontalInput;
+            float movementInput = horizontalInput != 0 ? horizontalInput : horizontalInput;
             MoveBall(movementInput);
         }
     }
@@ -51,9 +51,15 @@ public class BallController : MonoBehaviour
         {
             isInLane = true;
             scoreKeeper.BallThrown();
+            boostsAndStops.StartSaws();
             if (animatedThrow != null)
                 animatedThrow.StartThrow();
             MoveForward();
+        }
+        else if (collision.gameObject.CompareTag("Saw"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -62,16 +68,29 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag("Lane"))
             isInLane = false;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Boosts"))
+            ApplyBoost(5f, 3f);
+    }
     private void MoveForward()
     {
         // Apply constant force while balls in lane
         rb.AddForce(transform.forward * forwardForce, ForceMode.VelocityChange);
     }
 
-    // Placeholder for detecting VR input, can't remember if this is
-    // builtin or not, may remove after I start working on VR.
-    private float GetVRJoystickHorizontalInput()
+    public void ApplyBoost(float amount, float duration)
     {
-        return 0f;
+        StartCoroutine(BoostSpeed(amount, duration));
+    }
+
+    private IEnumerator BoostSpeed(float amount, float duration)
+    {
+        if (rb != null)
+        {
+            rb.velocity += transform.forward * amount;
+            yield return new WaitForSeconds(duration);
+            rb.velocity -= transform.forward * amount;
+        }
     }
 }

@@ -28,7 +28,7 @@ public class AnimatedThrow : MonoBehaviour
 
     private IEnumerator WaitForAnimation()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(1f);
         ReturnToPlay();
     }
 

@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Dissolve_Amount: 0.2
+    - _Dissolve_Amount: -0.02
     - _Dissolve_Fragments: 50
     - _Dissolve_Scale: 50
     - _Dissolve_Speed: -1.43

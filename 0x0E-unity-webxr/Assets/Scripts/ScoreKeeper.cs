@@ -53,6 +53,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private IEnumerator ResetCoroutine()
     {
+        yield return new WaitForSeconds(2f);
         // Flash the score text
         for (int i = 0; i < 5; i++)
         {
